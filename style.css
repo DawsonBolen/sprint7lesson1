@@ -1,0 +1,41 @@
+#games {
+    display: grid;
+    /* auto-fit/auto-fill makes it responsive; use one */
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+.card-body {
+    padding: var(--bs-card-spacer-y, 1rem) var(--bs-card-spacer-x, 1rem) !important;
+    width: 100%;
+    padding: 10px;
+}
+
+.game-card {
+    width: 100%;
+    height: 100%;
+}
+
+.game-card-inner {
+    width: 100%;
+}
+
+.gc-img {
+    width: 100%;
+    height: 150px;
+    /* crop box */
+    overflow: hidden;
+}
+
+.gc-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* crop instead of stretch */
+    display: block;
+    /* remove inline img baseline gap */
+}
+
+.gc-body {
+    padding: 20px;
+}
