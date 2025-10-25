@@ -1,4 +1,4 @@
-const url = 'https://jsonfakery.com/games/infinite-scroll?page=1';
+const url = 'https://jsonfakery.com/games/random/500';
 const games = document.getElementById('games')
 
 fetch(url)
@@ -10,13 +10,17 @@ fetch(url)
 
     })
     .then(data => {
-        console.log(data)
-        data.forEach(game => {
-            let gameCard = document.createElement('div');
-            gameCard.classList.add('game-card')
-            gameCard.classList.add('card');
 
-            gameCard.innerHTML = `
+
+
+        data.forEach(game => {
+            //important. I am going to make a new activity altogether at this point soon but there are innaporptiate games so include this if statement please
+            if (game.esrb_rating === "Everyone") {
+                let gameCard = document.createElement('div');
+                gameCard.classList.add('game-card')
+                gameCard.classList.add('card');
+
+                gameCard.innerHTML = `
 
 <div class='gc-img'>
   <img src="${game.background_image}" class="card-img-top" alt="...">
@@ -29,7 +33,10 @@ fetch(url)
 
 `
 
-            games.appendChild(gameCard)
+                games.appendChild(gameCard)
+
+            }
+
         })
     })
     .catch(err => {
